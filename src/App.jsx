@@ -70,7 +70,7 @@ class App extends Component {
       (acc, { id, name, rows }) => [
         ...acc,
         <tr key={`rowsGroup_${id}`}>
-          <th className='sticky-left text-nowrap'>
+          <th className='sticky-left bg-white text-nowrap'>
             <button className='btn btn-light btn-sm' onClick={this.handleToggleRowsGroup(id)}>
               {this.state.openedRowsGroups.has(id) ? '−' : '+'}
             </button>{' '}
