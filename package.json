@@ -1,0 +1,115 @@
+{
+  "name": "test-sticky-table",
+  "version": "0.1.0",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "prettify": "prettier 'src/**/*.js' 'src/**/*.jsx' --write",
+    "lint": "eslint --ext .js,.jsx src/ --fix",
+    "deploy": "gh-pages -d build",
+    "precommit": "lint-staged",
+    "prepush": "(yarn run build && yarn run deploy) ; exit 0"
+  },
+  "homepage": "https://someden.github.io/test-sticky-table/",
+  "repository": {
+    "type": "git",
+    "url": "someden/test-sticky-table"
+  },
+  "dependencies": {
+    "immutable": "^3.8.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "gh-pages": "^1.1.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
+    "prettier": "^1.11.1",
+    "react-scripts": "^1.1.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "env": {
+      "browser": true,
+      "node": true,
+      "commonjs": true,
+      "es6": true,
+      "jest": true
+    },
+    "plugins": [
+      "import",
+      "jsx-a11y",
+      "react"
+    ],
+    "rules": {
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "default-case": "off",
+      "no-confusing-arrow": "off",
+      "indent": "off",
+      "object-curly-newline": "off",
+      "function-paren-newline": "off",
+      "max-len": "off",
+      "jsx-quotes": [
+        "error",
+        "prefer-single"
+      ],
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": [
+            "/src/setupTests.js",
+            "**/*.test.js",
+            "**/*.dev.js"
+          ]
+        }
+      ],
+      "jsx-a11y/no-autofocus": "off",
+      "jsx-a11y/href-no-hash": "off",
+      "jsx-a11y/anchor-is-valid": [
+        "error",
+        {
+          "components": [],
+          "specialLink": [],
+          "aspects": [
+            "noHref",
+            "invalidHref",
+            "preferButton"
+          ]
+        }
+      ],
+      "react/sort-comp": "off",
+      "react/no-array-index-key": "off"
+    }
+  },
+  "eslintIgnore": [
+    "/coverage/*",
+    "/build/*",
+    "/public/*"
+  ],
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "trailingComma": "es5"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}

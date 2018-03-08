@@ -1,0 +1,22 @@
+:root {
+  font-size: 0.875em;
+}
+
+.full-viewport {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
+
+.table.sticky-header thead th,
+.table.sticky-header thead td {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+}
+
+.sticky-left {
+  position: sticky;
+  z-index: 1;
+  left: 0;
+}
